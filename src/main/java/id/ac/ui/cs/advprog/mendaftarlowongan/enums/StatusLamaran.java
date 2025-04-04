@@ -3,10 +3,9 @@ import lombok.Getter;
 
 @Getter
 public enum StatusLamaran {
-    WAITING_PAYMENT("WAITING_PAYMENT"),
-    FAILED("FAILED"),
-    SUCCESS("SUCCESS"),
-    CANCELLED("CANCELLED");
+    MENUNGGU("MENUNGGU"),
+    DITERIMA("DITERIMA"),
+    DITOLAK("DITOLAK");
 
     private final String value;
 
