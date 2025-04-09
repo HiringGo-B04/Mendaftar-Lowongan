@@ -4,8 +4,6 @@ import lombok.Setter;
 import lombok.Getter;
 import java.util.UUID;
 
-import jakarta.persistence.*;
-
 @Getter @Setter
 public class Lamaran {
     private UUID id;
