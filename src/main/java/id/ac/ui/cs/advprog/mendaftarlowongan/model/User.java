@@ -10,5 +10,9 @@ public class User {
 
     private String email;
     private String password;
+
+    public User() {
+        this.id = UUID.randomUUID();
+    }
 }
 
