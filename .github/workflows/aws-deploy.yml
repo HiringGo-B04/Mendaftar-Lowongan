@@ -71,6 +71,10 @@ jobs:
           }' > Dockerrun.aws.json
           cat Dockerrun.aws.json
 
+      - name: Generate version label
+        id: version-label
+        run: echo "::set-output name=label::${GITHUB_SHA}-$(date +'%Y%m%d%H%M%S')"
+
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21
         with:
@@ -78,7 +82,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: ${{ secrets.EB_APPLICATION_NAME }}
           environment_name: ${{ secrets.EB_ENVIRONMENT_NAME }}
-          version_label: ${{ github.sha }}
+          version_label: ${{ steps.version-label.outputs.label }}
           region: ${{ secrets.AWS_REGION }}
           deployment_package: Dockerrun.aws.json
-          use_existing_version_if_available: true
