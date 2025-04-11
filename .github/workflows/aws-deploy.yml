@@ -23,6 +23,11 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build -x test
 
+      - name: Debug secrets
+        run: |
+          echo "Checking if AWS_REGION secret exists (should not print actual value)"
+          if [ -n "${{ secrets.AWS_REGION }}" ]; then echo "AWS_REGION is set"; else echo "AWS_REGION is NOT set"; fi
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
