@@ -14,8 +14,12 @@ public class Mahasiswa extends User {
     private List<Lamaran> daftarLamaran;
 
     public Mahasiswa() {
+        super();
     }
 
     public Mahasiswa(String fullName, String nim) {
+        super();
+        this.fullName = fullName;
+        this.nim = nim;
     }
 }
