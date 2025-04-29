@@ -13,7 +13,7 @@ public class Lamaran {
     private UUID id;
     private int sks;
     private float ipk;
-    private String status = "MENUNGGU";
+    private StatusLamaran status = StatusLamaran.MENUNGGU;
     private UUID idMahasiswa;
     private UUID idLowongan;
 
@@ -29,7 +29,7 @@ public class Lamaran {
     public static class Builder {
         private int sks;
         private float ipk;
-        private String status = "MENUNGGU";
+        private StatusLamaran status = StatusLamaran.MENUNGGU;
         private UUID idMahasiswa;
         private UUID idLowongan;
 
@@ -43,7 +43,7 @@ public class Lamaran {
             return this;
         }
 
-        public Builder status(String status) {
+        public Builder status(StatusLamaran status) {
             this.status = status;
             return this;
         }

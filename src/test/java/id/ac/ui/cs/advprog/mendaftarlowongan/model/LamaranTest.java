@@ -17,7 +17,6 @@ class LamaranTest {
         Lamaran lamaran = new Lamaran.Builder()
                 .sks(20)
                 .ipk(3.75f)
-                .status("MENUNGGU")
                 .mahasiswa(mahasiswaId)
                 .lowongan(lowonganId)
                 .build();
@@ -25,7 +24,7 @@ class LamaranTest {
         assertNotNull(lamaran.getId());
         assertEquals(20, lamaran.getSks());
         assertEquals(3.75f, lamaran.getIpk());
-        assertEquals("MENUNGGU", lamaran.getStatus());
+        assertEquals(StatusLamaran.MENUNGGU, lamaran.getStatus());
         assertEquals(mahasiswaId, lamaran.getIdMahasiswa());
         assertEquals(lowonganId, lamaran.getIdLowongan());
     }
@@ -42,7 +41,7 @@ class LamaranTest {
                 .lowongan(lowonganId)
                 .build();
 
-        assertEquals("MENUNGGU", lamaran.getStatus(),
+        assertEquals(StatusLamaran.MENUNGGU, lamaran.getStatus(),
                 "Default status harus MENUNGGU jika tidak di-set manual");
     }
 
@@ -58,10 +57,10 @@ class LamaranTest {
 
         lamaran.setIdMahasiswa(newMahasiswaId);
         lamaran.setIdLowongan(newLowonganId);
-        lamaran.setStatus("DITERIMA");
+        lamaran.setStatus(StatusLamaran.DITERIMA);
 
         assertEquals(newMahasiswaId, lamaran.getIdMahasiswa());
         assertEquals(newLowonganId, lamaran.getIdLowongan());
-        assertEquals("DITERIMA", lamaran.getStatus());
+        assertEquals(StatusLamaran.DITERIMA, lamaran.getStatus());
     }
 }
