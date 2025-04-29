@@ -18,6 +18,12 @@ public class Lamaran {
     private UUID idLowongan;
 
     private Lamaran(Builder builder) {
+        this.id = UUID.randomUUID();
+        this.sks = builder.sks;
+        this.ipk = builder.ipk;
+        this.status = builder.status;
+        this.idMahasiswa = builder.idMahasiswa;
+        this.idLowongan = builder.idLowongan;
     }
 
     public static class Builder {
@@ -28,27 +34,32 @@ public class Lamaran {
         private UUID idLowongan;
 
         public Builder sks(int sks) {
-            return null;
+            this.sks = sks;
+            return this;
         }
 
         public Builder ipk(float ipk) {
-            return null;
+            this.ipk = ipk;
+            return this;
         }
 
         public Builder status(String status) {
-            return null;
+            this.status = status;
+            return this;
         }
 
         public Builder mahasiswa(UUID mahasiswa) {
-            return null;
+            this.idMahasiswa = mahasiswa;
+            return this;
         }
 
         public Builder lowongan(UUID lowongan) {
-            return null;
+            this.idLowongan = lowongan;
+            return this;
         }
 
         public Lamaran build() {
-            return null;
+            return new Lamaran(this);
         }
     }
 }
